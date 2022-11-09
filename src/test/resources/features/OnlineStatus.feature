@@ -47,8 +47,10 @@ Feature: Online Status Functionality
     Then verify user can see valid user status under the user icon "<defaultStatusMessage>"
     Examples:
       | defaultStatusMessage |
-      | In a meeting         |
-      | Commuting            |
+
+      | 📅 In a meeting      |
+
+      | 🚌 Commuting         |
       | Working remotely     |
       | Out sick             |
       | Vacationing          |

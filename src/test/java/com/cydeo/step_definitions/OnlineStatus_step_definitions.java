@@ -2,11 +2,15 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.OnlineStatusPage;
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import netscape.javascript.JSException;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class OnlineStatus_step_definitions {
 
@@ -83,8 +87,18 @@ public class OnlineStatus_step_definitions {
     @And("user clicks on emoji option menu and choose one emoji {string}")
     public void userClicksOnEmojiOptionMenuAndChooseOneEmoji(String emojiTitle) {
         onlineStatusPage.emojiButton.click();
+
         for (WebElement emoji : onlineStatusPage.allEmojis) {
-            if(emoji.getAttribute("data-title").equals(emojiTitle)){
+            //Actions actions = new Actions(Driver.getDriver());
+
+            if(emoji.getAttribute("data-title").trim().equals(emojiTitle)){
+                System.out.println("emoji.getAttribute(\"data-title\") = " + emoji.getAttribute("data-title"));
+                System.out.println("emoji.getText() = " + emoji.getText());
+                //JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+                //js.executeScript("arguments[0].scrollIntoView();",emoji);
+                //BrowserUtils.sleep(1);
+                //actions.moveToElement(emoji).perform();
+
                 emoji.click();
                 BrowserUtils.sleep(1);
                 break;
@@ -93,4 +107,33 @@ public class OnlineStatus_step_definitions {
     }
 
 
+    @And("user clicks on Clear status message button")
+    public void userClicksOnClearStatusMessageButton() {
+        onlineStatusPage.clearStatusMessageButton.click();
+    }
+
+    @Then("verify user is not see default status {string} under the user icon")
+    public void verifyUserIsNotSeeDefaultStatusUnderTheUserIcon(String status) {
+        Assert.assertFalse(onlineStatusPage.currentUserStatus.getText().contains(status));
+    }
+
+
+
+    @Then("verify user can see valid option - {string} - on the clearStatusDropdown")
+    public void verifyUserCanSeeValidOptionOnTheClearStatusDropdown(String currentTimeOption) {
+        System.out.println("onlineStatusPage.defaultSelectedOptionFromStatusAfterDropdown.getText() = " + onlineStatusPage.defaultSelectedOptionFromStatusAfterDropdown.getText());
+        Assert.assertTrue(onlineStatusPage.defaultSelectedOptionFromStatusAfterDropdown.getText().equals(currentTimeOption));
+    }
+
+    @And("user clicks on dropdown and choose one of the option - {string}")
+    public void userClicksOnDropdownAndChooseOneOfTheOption(String timeOption) {
+        onlineStatusPage.defaultSelectedOptionFromStatusAfterDropdown.click();
+        for (WebElement eachOption : onlineStatusPage.clearStatusAfterOptions) {
+            if(eachOption.getText().equals(timeOption)){
+                eachOption.click();
+                break;
+            }
+        }
+
+    }
 }

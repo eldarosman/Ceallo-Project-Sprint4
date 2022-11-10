@@ -61,4 +61,16 @@ public class OnlineStatusPage {
 
 
 
+    @FindBy(xpath = "//div[@class='name-parts']")
+    public List<WebElement> clearStatusAfterOptions;
+
+
+
+    @FindBy(xpath = "//input[@placeholder='Select option']")
+    public WebElement clearStatusAfterDropdown;
+
+
+    @FindBy(xpath = "//span[@class='multiselect__single']")
+    public WebElement defaultSelectedOptionFromStatusAfterDropdown;
+
 }

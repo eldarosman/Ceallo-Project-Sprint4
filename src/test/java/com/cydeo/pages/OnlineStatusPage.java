@@ -14,7 +14,7 @@ public class OnlineStatusPage {
     }
 
     @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
-    public WebElement userIconButton;
+    public WebElement userIcon;
 
     @FindBy(xpath = "//a[@class='user-status-menu-item__toggle']")
     public WebElement currentUserStatus;
@@ -37,7 +37,27 @@ public class OnlineStatusPage {
     @FindBy(xpath = "//label[normalize-space(text())='Invisible']")
     public WebElement statusButton_Invisible;
 
+    @FindBy(xpath = "//span[@class='predefined-status__message']")
+    public List<WebElement> allDefaultOptionsStatusMessage;
 
+    @FindBy(xpath = "//button[@class='status-buttons__primary primary']")
+    public WebElement setStatusMessageButton;
+
+    @FindBy(xpath = "//button[@class='status-buttons__select']")
+    public WebElement clearStatusMessageButton;
+
+
+
+    @FindBy(xpath = "//form[@class='custom-input__form']/input")
+    public WebElement statusMessageInputBox;
+
+
+    @FindBy(xpath = "//button[@class='custom-input__emoji-button']")
+    public WebElement emojiButton;
+
+
+    @FindBy(xpath = "//span[@class='emoji-mart-emoji']")
+    public List<WebElement> allEmojis;
 
 
 

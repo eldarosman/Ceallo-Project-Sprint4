@@ -41,32 +41,30 @@ Feature: Online Status Functionality
   Scenario Outline: Verify if user can set a status message from any default options
     When user clicks on the User Icon
     And user clicks on current user status
-    And user chose a status message from default options <defaultStatusMessage>
+    And user chose a status message from default options "<defaultStatusMessage>"
     And user clicks on Set Status Message button
     And user clicks on the User Icon
-    Then verify user can see valid user status under the user icon "<defaultStatusMessage>"
+    Then verify user can see valid user status under the user icon "<actualStatusMessage>"
     Examples:
-      | defaultStatusMessage |
-
-      | 📅 In a meeting      |
-
-      | 🚌 Commuting         |
-      | Working remotely     |
-      | Out sick             |
-      | Vacationing          |
+      | defaultStatusMessage | actualStatusMessage |
+      | In a meeting         | In a meeting        |
+      | Commuting            | Commuting           |
+      | Working remotely     | Working remotely    |
+      | Out sick             | Out sick            |
+      | Vacationing          | Vacationing         |
 
 
-#  Scenario: Verify if user can set a custom status message with also using any emoji option provided
-#    When user clicks on the User Icon
-#    And user clicks on user status
-#    When user clicks on online status message input box
-#    And user types a custom status message "custom status"
-#    And user clicks on emoji option menu and choose one emoji
-#    And user clicks on Set StatusMessage button
-#    And user clicks on the User Icon
-#    Then verify user can see valid user status "custom status"
-#
-#
+  Scenario: Verify if user can set a custom status message with also using any emoji option provided
+    When user clicks on the User Icon
+    And user clicks on current user status
+    When user clicks on online status message input box
+    And user types a custom status message "My status"
+    And user clicks on emoji option menu and choose one emoji "jack_o_lantern"
+    And user clicks on Set Status Message button
+    And user clicks on the User Icon
+    Then verify user can see valid user status under the user icon "My status"
+
+
 #  Scenario Outline: Verify if user can clear status message
 #    When user clicks on the User Icon
 #    And user clicks on user status

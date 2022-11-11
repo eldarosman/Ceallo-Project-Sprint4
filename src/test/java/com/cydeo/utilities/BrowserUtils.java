@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class BrowserUtils {
 
-    public static void sleep(int second){
+    public static void sleep(int second) {
         second *= 1000;
         try {
             Thread.sleep(second);
@@ -15,13 +15,13 @@ public class BrowserUtils {
         }
     }
 
-    public static void switchWindowAndVerify(String expectedInUrl, String expectedInTitle){
+    public static void switchWindowAndVerify(String expectedInUrl, String expectedInTitle) {
         Set<String> allWindowsHandles = Driver.getDriver().getWindowHandles();
 
         for (String each : allWindowsHandles) {
             Driver.getDriver().switchTo().window(each);
             System.out.println("Current URL: " + Driver.getDriver().getCurrentUrl());
-            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)) {
                 break;
             }
         }
@@ -30,7 +30,7 @@ public class BrowserUtils {
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
     }
 
-    public static void verifyTitle(String expectedTitle){
+    public static void verifyTitle(String expectedTitle) {
         Assert.assertEquals(Driver.getDriver().getTitle(), expectedTitle);
     }
 

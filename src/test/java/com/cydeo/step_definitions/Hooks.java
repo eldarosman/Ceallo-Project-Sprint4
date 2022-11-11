@@ -14,7 +14,7 @@ public class Hooks {
     LogInPage LogInPage = new LogInPage();
 
     @Before
-    public void setupLogin(){
+    public void setupLogin() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
         LogInPage.usernameInputBox.sendKeys(ConfigurationReader.getProperty("username"));
@@ -24,10 +24,10 @@ public class Hooks {
     }
 
     @After
-    public void teardownScenario(Scenario scenario){
-        if (scenario.isFailed()){
-            byte[] screenshots = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshots,"image/png",scenario.getName());
+    public void teardownScenario(Scenario scenario) {
+        if (scenario.isFailed()) {
+            byte[] screenshots = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshots, "image/png", scenario.getName());
         }
 
         Driver.closeDriver();

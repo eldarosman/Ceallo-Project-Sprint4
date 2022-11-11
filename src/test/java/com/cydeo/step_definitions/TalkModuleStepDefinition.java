@@ -1,22 +1,25 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.TalkModulePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TalkModuleStepDefinition {
 
+    TalkModulePage talkModulePage = new TalkModulePage();
+
     @Given("user is on Talk page")
     public void user_is_on_talk_page() {
-
+        talkModulePage.talkMenuTab.click();
     }
     @When("user create new group conversation")
     public void user_create_new_group_conversation() {
-
+        talkModulePage.talkMenuTab.click();
     }
-    @When("use add other users")
-    public void use_add_other_users() {
-
+    @When("user add other users")
+    public void user_add_other_users() {
+        talkModulePage.addParticipants();
     }
     @Then("new group conversation is created")
     public void new_group_conversation_is_created() {

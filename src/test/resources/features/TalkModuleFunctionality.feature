@@ -6,7 +6,7 @@ Feature: Talk Module Functionality
 Scenario: User can create a new group conversation by adding other users
   Given user is on Talk page
   When user create new group conversation
-  And use add other users
+  And user add other users
   Then new group conversation is created
 
   @CEA-1085

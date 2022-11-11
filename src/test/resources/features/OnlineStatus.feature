@@ -59,7 +59,7 @@ Feature: Online Status Functionality
     And user clicks on current user status
     When user clicks on online status message input box
     And user types a custom status message "My status"
-    And user clicks on emoji option menu and choose one emoji "heart"
+    And user clicks on emoji option menu and choose one emoji "mouse2"
     And user clicks on Set Status Message button
     And user clicks on the User Icon
     Then verify user can see valid user status under the user icon "My status"

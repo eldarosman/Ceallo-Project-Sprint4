@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 import netscape.javascript.JSException;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -89,18 +90,22 @@ public class OnlineStatus_step_definitions {
         onlineStatusPage.emojiButton.click();
 
         for (WebElement emoji : onlineStatusPage.allEmojis) {
-            //Actions actions = new Actions(Driver.getDriver());
-
-            if(emoji.getAttribute("data-title").trim().equals(emojiTitle)){
-                System.out.println("emoji.getAttribute(\"data-title\") = " + emoji.getAttribute("data-title"));
-                System.out.println("emoji.getText() = " + emoji.getText());
-                //JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+            Actions actions = new Actions(Driver.getDriver());
+            if(emoji.getAttribute("data-title").contains(emojiTitle)){
+                //System.out.println("emoji.getAttribute(\"data-title\") = " + emoji.getAttribute("data-title"));
+                //System.out.println("emoji.getText() = " + emoji.getText());
+               //emoji.sendKeys(Keys.PAGE_DOWN);
+                JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+                js.executeScript("arguments[0].click();",emoji);
+                BrowserUtils.sleep(2);
                 //js.executeScript("arguments[0].scrollIntoView();",emoji);
+                //js.executeScript("window.scrollBy(0,750);");
                 //BrowserUtils.sleep(1);
-                //actions.moveToElement(emoji).perform();
+                //actions.moveToElement(emoji);
+                //actions.perform();
+                //BrowserUtils.sleep(2);
+                //emoji.click();
 
-                emoji.click();
-                BrowserUtils.sleep(1);
                 break;
             }
         }

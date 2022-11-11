@@ -8,13 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class ContactsModulePage {
+public class ContactsModulePage extends BasePage{
 
-    private ContactsModulePage(){
+    public ContactsModulePage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    Faker faker = new Faker();
 
     @FindBy(xpath = "//button[@id='new-contact-button']")
     public WebElement createNewContact;
@@ -26,13 +25,19 @@ public class ContactsModulePage {
     public WebElement firstContact;
 
     @FindBy(xpath = "//div[@class=\'app-content-list-item-line-one\']")
-    List<WebElement> listOfContacts;
+    public List<WebElement> listOfContacts;
 
     @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-picture-force-white']")
     public WebElement userPictureIconOptions;
 
     @FindBy (xpath = "(//button[@class='action-button focusable'])[6]")
     public WebElement chooseFromFilesPicture;
+
+    @FindBy(xpath = "//*[@id=\"picker-filestable\"]/tbody/tr[3]/td[1]")
+    public WebElement avatarOption;
+
+    @FindBy (xpath = "//button[.='Choose']")
+    public WebElement chooseButton;
 
     @FindBy (xpath = "(//button[@class='icon action-item__menutoggle action-item__menutoggle--default-icon'])[5]")
     public WebElement contactsOptions;
@@ -45,11 +50,7 @@ public class ContactsModulePage {
     @FindBy( xpath = "//input[@id='contact-fullname']")
     public WebElement inputNameBox;
 
-    //method to generate a name
-    public void fakeName (){
-        inputNameBox.sendKeys(faker.name().firstName());
-    }
-
+    /*
     @FindBy (xpath = "//input[@id='contact-org']")
     public WebElement companyInputBox;
 
@@ -79,4 +80,6 @@ public class ContactsModulePage {
 
     @FindBy (xpath = "(//input[@class=\'property__value\'])[8]")
     public WebElement country;
+
+     */
 }

@@ -1,3 +1,4 @@
+  @talkModuleTag
 Feature: Talk Module Functionality
   Agile story: As a user, I should be able to create/delete conversation groups
   and chat with other co-workers under Talk Module

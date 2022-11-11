@@ -32,6 +32,30 @@ public class TalkModulePage extends BasePage {
     @FindBy(css = "a[aria-label='Conversation, Testers']")
     public WebElement createdConversation;
 
+    @FindBy(xpath = "//li[@class='participant-row offline']")
+    public List<WebElement> chatsParticipants;
+
+    @FindBy(xpath = "//li[@class='participant-row offline']//button")
+    public WebElement userMeatBallsButton;
+
+    @FindBy(xpath = "//span[.='Remove participant']")
+    public WebElement removeParticipantButton;
+
+    @FindBy(css = "div[role='textbox']")
+    public WebElement chatTextBox;
+
+    @FindBy(xpath = "//div[.='Hello World!']")
+    public WebElement sentMassage;
+
+    @FindBy(xpath = "(//button[@aria-label='Conversation settings'])[1]")
+    public WebElement conversationSettingsButton;
+
+    @FindBy(xpath = "//span[.='Delete conversation']")
+    public WebElement deleteConversationButton;
+
+    @FindBy(css = "button[class='primary']")
+    public WebElement yesButton;
+
     public void addParticipants() {
         plusButton.click();
         conversationNameField.sendKeys("Testers");
@@ -40,6 +64,13 @@ public class TalkModulePage extends BasePage {
             each.click();
         }
         createConversationButton.click();
+    }
+
+    public boolean conversationIsDeleted() {
+        conversationSettingsButton.click();
+        deleteConversationButton.click();
+        yesButton.click();
+        return !(createdConversation.isEnabled());
     }
 
 }

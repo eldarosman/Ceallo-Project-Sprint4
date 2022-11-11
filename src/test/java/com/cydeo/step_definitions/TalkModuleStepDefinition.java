@@ -1,5 +1,6 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.BasePage;
 import com.cydeo.pages.TalkModulePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,11 +12,11 @@ public class TalkModuleStepDefinition {
 
     @Given("user is on Talk page")
     public void user_is_on_talk_page() {
-        talkModulePage.talkMenuTab.click();
+        talkModulePage.talkMenuButton.click();
     }
     @When("user create new group conversation")
     public void user_create_new_group_conversation() {
-        talkModulePage.talkMenuTab.click();
+        talkModulePage.talkMenuButton.click();
     }
     @When("user add other users")
     public void user_add_other_users() {
@@ -23,7 +24,7 @@ public class TalkModuleStepDefinition {
     }
     @Then("new group conversation is created")
     public void new_group_conversation_is_created() {
-
+        talkModulePage.createdConversation.isEnabled();
     }
     @When("user click on conversation")
     public void user_click_on_conversation() {

@@ -50,6 +50,9 @@ public class ContactsModulePage extends BasePage{
     @FindBy( xpath = "//input[@id='contact-fullname']")
     public WebElement inputNameBox;
 
+    @FindBy (xpath = "//span[.='Delete picture']")
+    public WebElement deleteUserPictureOption;
+
     /*
     @FindBy (xpath = "//input[@id='contact-org']")
     public WebElement companyInputBox;

@@ -28,7 +28,7 @@ Feature: Contacts Module Functionality
     And user click delete option
     Then verify contact was deleted
 
-
+  @CEA-1096
   Scenario: User can change profile picture with the existing options
     When user clicks picture options
     And user clicks choose from files option

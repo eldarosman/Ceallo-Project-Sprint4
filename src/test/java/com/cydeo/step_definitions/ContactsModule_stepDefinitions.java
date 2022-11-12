@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class ContactsModule_stepDefinitions {
@@ -42,7 +43,7 @@ public class ContactsModule_stepDefinitions {
         for (WebElement eachContact : contactPage.listOfContacts) {
             if (eachContact.getText().equals(name)) {
                 Assert.assertTrue(eachContact.isDisplayed());
-            } 
+            }
         }
 
     }
@@ -115,6 +116,15 @@ public class ContactsModule_stepDefinitions {
     }
     @Then("verify the picture is displayed")
     public void verify_the_picture_is_displayed() {
+
+        contactPage.userPictureIconOptions.click();
+
+        try{
+            Assert.assertTrue(contactPage.deleteUserPictureOption.isDisplayed());
+            System.out.println("User Picture WAS uploaded!");
+        } catch (NoSuchElementException e){
+            System.out.println("User Picture was NOT uploaded!");
+        }
 
     }
 

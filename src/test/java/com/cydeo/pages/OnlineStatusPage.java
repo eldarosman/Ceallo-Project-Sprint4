@@ -1,5 +1,6 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,5 +73,11 @@ public class OnlineStatusPage extends BasePage {
 
     @FindBy(xpath = "//span[@class='multiselect__single']")
     public WebElement defaultSelectedOptionFromStatusAfterDropdown;
+
+    public void clearStatusMessageAndReturnToUSerStatusPage(){
+        clearStatusMessageButton.click();
+        usersMenuButton.click();
+        currentUserStatus.click();
+    }
 
 }

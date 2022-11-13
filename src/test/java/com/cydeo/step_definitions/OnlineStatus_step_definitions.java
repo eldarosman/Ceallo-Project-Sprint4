@@ -31,6 +31,7 @@ public class OnlineStatus_step_definitions {
     }
     @Then("verify if user can view all online status on the page")
     public void verify_if_user_can_view_all_online_status_on_the_page() {
+        BrowserUtils.sleep(2);
         Assert.assertTrue(onlineStatusPage.statusButton_Online.isDisplayed());
         Assert.assertTrue(onlineStatusPage.statusButton_DoNotDisturb.isDisplayed());
         Assert.assertTrue(onlineStatusPage.statusButton_Away.isDisplayed());
@@ -39,6 +40,7 @@ public class OnlineStatus_step_definitions {
 
     @And("user clicks on one from the available status {string}")
     public void userClicksOnOneFromTheAvailableStatus(String status) {
+        onlineStatusPage.clearStatusMessageAndReturnToUSerStatusPage();
         for (WebElement eachStatus : onlineStatusPage.allUserStatuses) {
             if(eachStatus.getText().contains(status)){
                 eachStatus.click();

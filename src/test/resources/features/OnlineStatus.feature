@@ -83,6 +83,7 @@ Feature: Online Status Functionality
       | Out sick             |
       | Vacationing          |
 
+  @CEA-1091
 Scenario: Verify that user can set a time to clear the message automatically
   When user clicks on the User Icon
   And user clicks on current user status

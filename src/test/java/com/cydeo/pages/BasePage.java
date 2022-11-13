@@ -53,7 +53,7 @@ public class BasePage {
     @FindBy(xpath = "div[id='contactsmenu']")
     public WebElement contactsButton;
 
-    @FindBy(xpath = "div[id='settings']")
+    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
     public WebElement usersMenuButton;
 
 }

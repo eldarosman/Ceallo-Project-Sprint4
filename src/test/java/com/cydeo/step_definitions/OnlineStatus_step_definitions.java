@@ -19,7 +19,7 @@ public class OnlineStatus_step_definitions {
 
     @When("user clicks on the User Icon")
     public void user_clicks_on_the_user_icon() {
-        onlineStatusPage.userIcon.click();
+        onlineStatusPage.usersMenuButton.click();
     }
     @Then("user can see current user status under the User Icon")
     public void user_can_see_current_user_status_under_the_user_icon() {

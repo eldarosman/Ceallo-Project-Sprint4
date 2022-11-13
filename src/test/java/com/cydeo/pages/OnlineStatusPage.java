@@ -7,14 +7,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class OnlineStatusPage {
+public class OnlineStatusPage extends BasePage {
 
     public OnlineStatusPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+        super();
     }
 
-    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
-    public WebElement userIcon;
+//    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
+//    public WebElement userIcon;
 
     @FindBy(xpath = "//a[@class='user-status-menu-item__toggle']")
     public WebElement currentUserStatus;

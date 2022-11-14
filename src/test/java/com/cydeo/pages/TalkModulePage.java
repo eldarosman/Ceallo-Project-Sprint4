@@ -3,12 +3,13 @@ package com.cydeo.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.w3c.dom.html.HTMLInputElement;
 
 import java.util.List;
 
 import static com.cydeo.utilities.Driver.getDriver;
 
-public class TalkModulePage extends BasePage {
+public class TalkModulePage extends BasePage{
 
     public void TalkModulePage() {
         PageFactory.initElements(getDriver(), this);

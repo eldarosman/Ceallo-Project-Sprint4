@@ -5,7 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+<<<<<<< HEAD
 public class BasePage  {
+=======
+public abstract class BasePage {
+>>>>>>> master
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);

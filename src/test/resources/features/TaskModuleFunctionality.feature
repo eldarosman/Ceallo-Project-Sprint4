@@ -44,5 +44,5 @@ Feature: Task module functionality
     When user click on "Pizza List"
     And user click on checkbox
     And user click on "Completed" navigation list
-    Then user should see "Peperoni" task inside
+    Then user should see "Peperoni" task
 

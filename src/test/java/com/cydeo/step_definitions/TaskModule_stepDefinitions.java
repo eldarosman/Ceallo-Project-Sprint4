@@ -96,4 +96,18 @@ public class TaskModule_stepDefinitions {
         Assert.assertTrue(tasksPage.currentTasksNumbers.isDisplayed());
         System.out.println("currentTasksNumbers = " + tasksPage.currentTasksNumbers.getText());
     }
+
+    //--------@CEA-1101--------
+
+    @When("user click on checkbox")
+    public void user_click_on_checkbox() {
+        BrowserUtils.sleep(2);
+        tasksPage.tasksCheckbox.click();
+    }
+    @When("user click on {string} navigation list")
+    public void user_click_on_navigation_list(String completedTasks) {
+        BrowserUtils.sleep(2);
+        tasksPage.tasksNavigationButton(completedTasks);
+    }
+
 }

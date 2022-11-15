@@ -16,7 +16,7 @@ Feature: Task module functionality
     When user click on Add List button
     And user enters name of List "Pizza List"
     And user click on Save button
-    Then user should see just created list in page
+    Then user should see just created list "Pizza List" in page
 
   @CEA-1098
   Scenario: User should be able to create new task

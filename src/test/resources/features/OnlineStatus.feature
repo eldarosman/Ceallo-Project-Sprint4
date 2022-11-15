@@ -16,20 +16,20 @@ Feature: Online Status Functionality
     #Given user is on the Ceallo dashboard page
 
   @CEA-1071
-  Scenario: Verify if user can view Online Status
+  Scenario: Verify that user can view Online Status
     When user clicks on the User Icon
     Then user can see current user status under the User Icon
     When user clicks on current user status
-    Then verify if user can view all online status on the page
+    Then verify that user can view all online status on the page
 
-  @CEA-1072
-  Scenario Outline: Verify if user can change Online Status
+  @CEA-1072 @smoke
+  Scenario Outline: Verify that user can change Online Status
     When user clicks on the User Icon
     And user clicks on current user status
     And user clicks on one from the available status "<onlineStatus>"
     And user clicks on close window button
     And user clicks on the User Icon
-    Then verify user can see valid user status under the user icon "<onlineStatus>"
+    Then verify that user can see valid user status under the user icon "<onlineStatus>"
     Examples:
       | onlineStatus   |
       | Online         |
@@ -38,13 +38,13 @@ Feature: Online Status Functionality
       | Do not disturb |
 
   @CEA-1078
-  Scenario Outline: Verify if user can set a status message from any default options
+  Scenario Outline: Verify that user can set a status message from any default options
     When user clicks on the User Icon
     And user clicks on current user status
     And user chose a status message from default options "<defaultStatusMessage>"
     And user clicks on Set Status Message button
     And user clicks on the User Icon
-    Then verify user can see valid user status under the user icon "<actualStatusMessage>"
+    Then verify that user can see valid user status under the user icon "<actualStatusMessage>"
     Examples:
       | defaultStatusMessage | actualStatusMessage |
       | In a meeting         | In a meeting        |
@@ -62,7 +62,7 @@ Feature: Online Status Functionality
     And user clicks on emoji option menu and choose one emoji "mouse2"
     And user clicks on Set Status Message button
     And user clicks on the User Icon
-    Then verify user can see valid user status under the user icon "My status"
+    Then verify that user can see valid user status under the user icon "My status"
 
 @CEA-1090
   Scenario Outline: Verify that user can clear status message
@@ -74,7 +74,7 @@ Feature: Online Status Functionality
     And user clicks on current user status
     And user clicks on Clear status message button
     And user clicks on the User Icon
-    Then verify user is not see default status "<defaultStatusMessage>" under the user icon
+    Then verify that user is not see default status "<defaultStatusMessage>" under the user icon
     Examples:
       | defaultStatusMessage |
       | In a meeting         |
@@ -92,6 +92,6 @@ Scenario: Verify that user can set a time to clear the message automatically
   And user clicks on Set Status Message button
   And user clicks on the User Icon
   And user clicks on current user status
-  Then verify user can see valid option - "Don't clear" - on the clearStatusDropdown
+  Then verify that user can see valid option - "Don't clear" - on the clearStatusDropdown
 
 

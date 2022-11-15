@@ -29,9 +29,9 @@ public class OnlineStatus_step_definitions {
     public void user_clicks_on_current_user_status() {
         onlineStatusPage.currentUserStatus.click();
     }
-    @Then("verify if user can view all online status on the page")
-    public void verify_if_user_can_view_all_online_status_on_the_page() {
-        BrowserUtils.sleep(2);
+    @Then("verify that user can view all online status on the page")
+    public void verify_that_user_can_view_all_online_status_on_the_page() {
+        // BrowserUtils.sleep(2);
         Assert.assertTrue(onlineStatusPage.statusButton_Online.isDisplayed());
         Assert.assertTrue(onlineStatusPage.statusButton_DoNotDisturb.isDisplayed());
         Assert.assertTrue(onlineStatusPage.statusButton_Away.isDisplayed());
@@ -44,18 +44,18 @@ public class OnlineStatus_step_definitions {
         for (WebElement eachStatus : onlineStatusPage.allUserStatuses) {
             if(eachStatus.getText().contains(status)){
                 eachStatus.click();
-                BrowserUtils.sleep(2);
+                //BrowserUtils.sleep(1);
             }
         }
     }
 
     @And("user clicks on close window button")
     public void userClicksOnCloseWindowButton() {
-        BrowserUtils.sleep(2);
+        //BrowserUtils.sleep(2);
         onlineStatusPage.closeStatusWindow.click();
     }
 
-    @Then("verify user can see valid user status under the user icon {string}")
+    @Then("verify that user can see valid user status under the user icon {string}")
     public void verifyUserCanSeeValidUserStatusUnderTheUserIcon(String status) {
         Assert.assertTrue(onlineStatusPage.currentUserStatus.getText().contains(status));
     }
@@ -90,45 +90,27 @@ public class OnlineStatus_step_definitions {
     @And("user clicks on emoji option menu and choose one emoji {string}")
     public void userClicksOnEmojiOptionMenuAndChooseOneEmoji(String emojiTitle) {
         onlineStatusPage.emojiButton.click();
-
         for (WebElement emoji : onlineStatusPage.allEmojis) {
-            Actions actions = new Actions(Driver.getDriver());
             if(emoji.getAttribute("data-title").contains(emojiTitle)){
-                //System.out.println("emoji.getAttribute(\"data-title\") = " + emoji.getAttribute("data-title"));
-                //System.out.println("emoji.getText() = " + emoji.getText());
-               //emoji.sendKeys(Keys.PAGE_DOWN);
                 JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
                 js.executeScript("arguments[0].click();",emoji);
-                BrowserUtils.sleep(2);
-                //js.executeScript("arguments[0].scrollIntoView();",emoji);
-                //js.executeScript("window.scrollBy(0,750);");
-                //BrowserUtils.sleep(1);
-                //actions.moveToElement(emoji);
-                //actions.perform();
-                //BrowserUtils.sleep(2);
-                //emoji.click();
-
                 break;
             }
         }
     }
-
 
     @And("user clicks on Clear status message button")
     public void userClicksOnClearStatusMessageButton() {
         onlineStatusPage.clearStatusMessageButton.click();
     }
 
-    @Then("verify user is not see default status {string} under the user icon")
+    @Then("verify that user is not see default status {string} under the user icon")
     public void verifyUserIsNotSeeDefaultStatusUnderTheUserIcon(String status) {
         Assert.assertFalse(onlineStatusPage.currentUserStatus.getText().contains(status));
     }
 
-
-
-    @Then("verify user can see valid option - {string} - on the clearStatusDropdown")
+    @Then("verify that user can see valid option - {string} - on the clearStatusDropdown")
     public void verifyUserCanSeeValidOptionOnTheClearStatusDropdown(String currentTimeOption) {
-        System.out.println("onlineStatusPage.defaultSelectedOptionFromStatusAfterDropdown.getText() = " + onlineStatusPage.defaultSelectedOptionFromStatusAfterDropdown.getText());
         Assert.assertTrue(onlineStatusPage.defaultSelectedOptionFromStatusAfterDropdown.getText().equals(currentTimeOption));
     }
 

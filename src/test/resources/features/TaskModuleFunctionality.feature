@@ -36,7 +36,7 @@ Feature: Task module functionality
   @CEA-1100
   Scenario: Verifying numbers of uncompleted tasks
     Given user on the Tasks page
-    Then user sees numbers of uncompleted tasks
+    Then user sees numbers of uncompleted tasks in current tab
 
   @CEA-1101
   Scenario: completing task functionality

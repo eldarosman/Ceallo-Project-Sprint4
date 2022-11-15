@@ -69,20 +69,31 @@ public class TaskModule_stepDefinitions {
         Assert.assertEquals(expectedTaskName, actualTaskName);
     }
 
-    //--------@CEA-1098--------
+    //--------@CEA-1099--------
 
     @When("user click on the star icon")
     public void user_click_on_the_star_icon() {
-
+        BrowserUtils.sleep(2);
+        tasksPage.tasksStarButton.click();
     }
     @When("user click {string} navigation list")
-    public void user_click_navigation_list(String string) {
-
+    public void user_click_navigation_list(String importantNavigator) {
+        BrowserUtils.sleep(2);
+        tasksPage.tasksNavigationButton(importantNavigator);
     }
     @Then("user should see {string} task")
-    public void user_should_see_task(String string) {
+    public void user_should_see_task(String expectedTaskName) {
+        BrowserUtils.sleep(2);
+        String actualTaskName = tasksPage.taskInTheList.getText();
 
+        Assert.assertEquals(expectedTaskName, actualTaskName);
     }
 
-
+    //--------@CEA-1100--------
+    @Then("user sees numbers of uncompleted tasks in current tab")
+    public void user_sees_numbers_of_uncompleted_tasks_in_current_tab() {
+        BrowserUtils.sleep(2);
+        Assert.assertTrue(tasksPage.currentTasksNumbers.isDisplayed());
+        System.out.println("currentTasksNumbers = " + tasksPage.currentTasksNumbers.getText());
+    }
 }

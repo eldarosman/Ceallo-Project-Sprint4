@@ -3,7 +3,7 @@ Feature: Talk Module Functionality
   Agile story: As a user, I should be able to create/delete conversation groups
   and chat with other co-workers under Talk Module
 
-  @CEA-1084
+  @CEA-1084 @smoke
 Scenario: User can create a new group conversation by adding other users
   Given user is on Talk page
   When user create new group conversation

@@ -71,6 +71,18 @@ public class TaskModule_stepDefinitions {
 
     //--------@CEA-1098--------
 
+    @When("user click on the star icon")
+    public void user_click_on_the_star_icon() {
+
+    }
+    @When("user click {string} navigation list")
+    public void user_click_navigation_list(String string) {
+
+    }
+    @Then("user should see {string} task")
+    public void user_should_see_task(String string) {
+
+    }
 
 
 }

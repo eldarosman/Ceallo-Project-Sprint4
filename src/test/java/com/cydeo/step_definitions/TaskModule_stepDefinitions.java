@@ -6,11 +6,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class TaskModule_stepDefinitions {
 
     TasksPage tasksPage = new TasksPage();
+
+    //--------@CEA-1097--------
 
     @Given("user on the Tasks module")
     public void user_on_the_tasks_module() {
@@ -40,5 +43,34 @@ public class TaskModule_stepDefinitions {
             }
         }
     }
+
+    //--------@CEA-1098--------
+
+    @Given("user on the Tasks page")
+    public void user_on_the_tasks_page() {
+        tasksPage.tasksMenuButton.click();
+    }
+    @When("user click on {string}")
+    public void user_click_on(String listName) {
+        BrowserUtils.sleep(2);
+        tasksPage.tasksNavigationButton(listName);
+    }
+    @When("user enters a new task {string}")
+    public void user_enters_a_new_task(String taskName) {
+        BrowserUtils.sleep(2);
+        tasksPage.newTaskBox.sendKeys(taskName, Keys.ENTER);
+    }
+    @Then("user should see a new task in List")
+    public void user_should_see_a_new_task_in_list() {
+        BrowserUtils.sleep(2);
+        String expectedTaskName = "Peperoni";
+        String actualTaskName = tasksPage.taskInTheList.getText();
+
+        Assert.assertEquals(expectedTaskName, actualTaskName);
+    }
+
+    //--------@CEA-1098--------
+
+
 
 }

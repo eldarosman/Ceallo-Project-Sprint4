@@ -12,7 +12,7 @@ Feature: Contacts Module Functionality
   Background: For scenarios in the feature file user is expected to be on the Contacts module
     Given user is on the contact module
 
-  @CEA-1092
+  @CEA-1092 @smoke
   Scenario: User can create a new contact
     When user clicks new contact icon
     Then verify new contact was created
@@ -22,7 +22,7 @@ Feature: Contacts Module Functionality
     When user is on the contact module
     Then verify user can see the list of contacts and number of contacts
 
-  @CEA-1095
+  @CEA-1095 @smoke
   Scenario: User can delete any selected contact
     When user clicks contact options
     And user click delete option

@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json",
                 "html:target/cucumber-reports.html",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber",
-                "rerun:target/rerun.txt"
         },
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",

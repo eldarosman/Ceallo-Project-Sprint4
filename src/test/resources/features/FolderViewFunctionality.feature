@@ -32,7 +32,7 @@ Feature: Folder View Functionality
     And user navigate to toggle-view button and click
     Then User verify that user can change the folder view by clicking the toggle-view button
 
-  @smoke
+  @smoke @1112
   Scenario: User can select all the files at once and see the total values of all files in the first line when clicked on the “select all” checkbox at the left top corner of the list
     Given user is on homePage
     When user navigate to FILES button and clicks

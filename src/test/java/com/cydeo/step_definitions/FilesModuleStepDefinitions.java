@@ -29,6 +29,7 @@ public class FilesModuleStepDefinitions {
     @When("user clicks Add to favorites")
     public void user_clicks_add_to_favorites() throws InterruptedException {
 
+       // klwqjthqwkljh
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),5);
         filesPage.fileModuleButton.click();

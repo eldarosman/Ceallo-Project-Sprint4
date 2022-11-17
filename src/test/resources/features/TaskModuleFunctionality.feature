@@ -33,7 +33,7 @@ Feature: Task module functionality
     And user click "Important" navigation list
     Then user should see "Peperoni" task
 
-  @CEA-1100
+  @CEA-1100 @smoke
   Scenario: Verifying numbers of uncompleted tasks
     Given user on the Tasks page
     Then user sees numbers of uncompleted tasks in current tab

@@ -22,7 +22,7 @@ Feature: Online Status Functionality
     When user clicks on current user status
     Then verify that user can view all online status on the page
 
-  @CEA-1072 @smoke
+  @CEA-1072
   Scenario Outline: Verify that user can change Online Status
     When user clicks on the User Icon
     And user clicks on current user status
@@ -53,7 +53,7 @@ Feature: Online Status Functionality
       | Out sick             | Out sick            |
       | Vacationing          | Vacationing         |
 
-@CEA-1089
+@CEA-1089 @smoke
   Scenario: Verify that user can set a custom status message with also using any emoji option provided
     When user clicks on the User Icon
     And user clicks on current user status

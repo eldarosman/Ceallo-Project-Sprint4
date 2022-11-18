@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class MyWebLocatorsPage extends BasePage{
+public class MyWebLocatorsPage {
 
     public MyWebLocatorsPage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -19,8 +19,14 @@ public class MyWebLocatorsPage extends BasePage{
     @FindBy(xpath = "//h3[@class='unified-search__result-line-one']")
     public List<WebElement> searchResults;
 
-    @FindBy(xpath = "(//h3[@class='unified-search__result-line-one'])[1]")
-    public WebElement firstSearchResult;
+    @FindBy(xpath = "(//h3[@class='unified-search__result-line-one'])[1]/../../..")
+    public WebElement firstSearchResultFiles;
+
+    @FindBy(xpath = "(//h3[@class='unified-search__result-line-one'])[1]/../../..//h3")
+    public WebElement firstSearchResultContact;
+
+    @FindBy(xpath = "(//h3[@class='unified-search__result-line-one'])[1]/../../..")
+    public WebElement firstSearchResultImages;
 
     @FindBy(css = ".highlighted")
     public WebElement highlightedSearchResult;

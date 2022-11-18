@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -40,7 +41,7 @@ public class SearchModule_stepDefinitions {
 
     @When("user click on the file name")
     public void user_click_on_the_file_name() {
-        myWebLocatorsPage.firstSearchResult.click();
+        myWebLocatorsPage.firstSearchResultFiles.click();
         BrowserUtils.sleep(3);
     }
 
@@ -52,7 +53,7 @@ public class SearchModule_stepDefinitions {
     //------------------------------------------------------TC2
     @When("user click on contacts searching icon")
     public void user_click_on_contacts_searching_icon() {
-       myWebLocatorsPage.magnifyIconSearchButton.click();
+       basePage.magnifyIconSearchButton.click();
     }
 
     @When("user enters a contact name {string}")
@@ -63,20 +64,29 @@ public class SearchModule_stepDefinitions {
 
     @Then("user should see the contact name")
     public void user_should_see_the_contact_name() {
-        Assert.assertTrue(myWebLocatorsPage.firstSearchResult.getAttribute("title").equalsIgnoreCase(contactsName));
+        Assert.assertTrue(myWebLocatorsPage.firstSearchResultContact.getAttribute("title").equalsIgnoreCase(contactsName));
+
+//        try{
+//            //Assert.assertTrue(myWebLocatorsPage.firstSearchResultContact.isDisplayed());
+//            Assert.assertTrue(myWebLocatorsPage.firstSearchResultContact.getAttribute("title").contains(contactsName));
+//        } catch (NoSuchElementException e){
+//            System.out.println("No result for " + contactsName);
+//            //System.out.println("Contact name is misspelled!");
+//        }
+
     }
 
     //------------------------------------------------------TC3
     @When("user click on Photo module icon")
     public void user_click_on_photo_module_icon() {
-        myWebLocatorsPage.magnifyIconSearchButton.click();
+        basePage.magnifyIconSearchButton.click();
     }
 
     @When("user enters an image name {string}")
     public void user_enters_an_image_name(String imageName) {
         myWebLocatorsPage.searchInputbox.sendKeys(imageName);
         BrowserUtils.sleep(3);
-        myWebLocatorsPage.firstSearchResult.click();
+        myWebLocatorsPage.firstSearchResultImages.click();
         BrowserUtils.sleep(3);
     }
 

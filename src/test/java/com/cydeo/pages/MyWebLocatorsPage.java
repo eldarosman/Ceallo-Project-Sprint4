@@ -16,8 +16,21 @@ public class MyWebLocatorsPage extends BasePage{
 //    @FindBy(xpath = "(//tbody[@id='fileList'])[1]")
 //    public WebElement allFilesArrayList;
 
-    @FindBy(css = "[class='app-content-list-item-line-one']")
-    List<WebElement> contactsList;
+    @FindBy(xpath = "//input[@class='unified-search__form-input']")
+    public WebElement searchInputbox;
+
+    @FindBy(xpath = "//h3[@class='unified-search__result-line-one']")
+    public List<WebElement> searchResults;
+
+    @FindBy(xpath = "(//h3[@class='unified-search__result-line-one'])[1]")
+    public WebElement firstSearchResult;
+
+    @FindBy(xpath = "//tr[@class='ui-droppable highlighted']")
+    public WebElement highlightedSearchResult;
+
+    @FindBy(xpath = "//tr[@class='highlighted']")
+    public WebElement highlightedImageSearchResult;
+
 
 
 

@@ -13,9 +13,6 @@ public class MyWebLocatorsPage extends BasePage{
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-//    @FindBy(xpath = "(//tbody[@id='fileList'])[1]")
-//    public WebElement allFilesArrayList;
-
     @FindBy(xpath = "//input[@class='unified-search__form-input']")
     public WebElement searchInputbox;
 
@@ -25,13 +22,8 @@ public class MyWebLocatorsPage extends BasePage{
     @FindBy(xpath = "(//h3[@class='unified-search__result-line-one'])[1]")
     public WebElement firstSearchResult;
 
-    @FindBy(xpath = "//tr[@class='ui-droppable highlighted']")
+    @FindBy(css = ".highlighted")
     public WebElement highlightedSearchResult;
-
-    @FindBy(xpath = "//tr[@class='highlighted']")
-    public WebElement highlightedImageSearchResult;
-
-
 
 
 }

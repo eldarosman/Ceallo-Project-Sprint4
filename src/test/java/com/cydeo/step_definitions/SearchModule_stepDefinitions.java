@@ -46,7 +46,7 @@ public class SearchModule_stepDefinitions {
 
     @Then("user should see a new page with the file name, size")
     public void user_should_see_a_new_page_with_the_file_name_size() {
-        Assert.assertTrue(myWebLocatorsPage.highlightedSearchResult.getAttribute("data-file").equals("PicturePhoto1"));
+        Assert.assertTrue(myWebLocatorsPage.highlightedSearchResult.getAttribute("data-file").equals(fileOrFolderName));
     }
 
     //------------------------------------------------------TC2
@@ -82,19 +82,20 @@ public class SearchModule_stepDefinitions {
 
     @Then("user should see searched image file on that page")
     public void user_should_see_searched_image_file_on_that_page() {
-        System.out.println(myWebLocatorsPage.highlightedImageSearchResult.getAttribute("data-file"));
-        Assert.assertFalse(myWebLocatorsPage.highlightedImageSearchResult.getAttribute("data-file").contains(imageName));
+        Assert.assertTrue(myWebLocatorsPage.highlightedSearchResult.getAttribute("data-file").contains(imageName));
     }
 
     //------------------------------------------------------TC4
     @When("user click on Ceallo icon at the top left corner")
     public void user_click_on_ceallo_icon_at_the_top_left_corner() {
-
+        basePage.mainMenuButton.click();
+        BrowserUtils.sleep(3);
     }
 
     @Then("user should see Dashboard page")
     public void user_should_see_dashboard_page() {
-
+        String expectedPageTitle = "Files - Ceallo - QA";
+        Assert.assertTrue(Driver.getDriver().getTitle().equalsIgnoreCase(expectedPageTitle));
     }
 
 }

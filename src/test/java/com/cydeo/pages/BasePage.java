@@ -11,7 +11,7 @@ public abstract class BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "a[id='nextcloud']")
+    @FindBy(xpath = "//a[@id='nextcloud']")
     public WebElement mainMenuButton;
 
     @FindBy(xpath = "(//*[@tabindex='-1'])[1]")

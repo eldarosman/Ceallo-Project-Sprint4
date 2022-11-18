@@ -20,7 +20,7 @@ public class SearchModule_stepDefinitions {
 
     MyWebLocatorsPage myWebLocatorsPage = new MyWebLocatorsPage();
 
-    String fileOrFolderName = "PicturesPhoto1";
+    String fileOrFolderName = "PicturePhoto1";
     String contactsName = "sibel";
     String imageName = "resim";
 

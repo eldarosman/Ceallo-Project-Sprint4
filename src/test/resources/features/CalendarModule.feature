@@ -25,7 +25,7 @@ Feature: Display all type of calendar and create/delete event through Monthly Ca
     When User can click new event and give name
     Then User can see the event on monthly calendar view
 
-  @CEA-1123 @smoke
+  @CEA-1123
   Scenario: User can delete the event
     When User can click event name on calendar and delete it
     Then User can see calendar that event is deleted

@@ -2,7 +2,7 @@
 Feature: Notes Module Functionality
 
   User Story:As a user, I should be able to create/delete any note and see the details of the note.
-
+@smoke
   Scenario: User should be able to create a new note
     When user clicks on the notes module
     And user click on the + button
@@ -14,7 +14,7 @@ Feature: Notes Module Functionality
     And user clicks on the details
     Then user should be able to see the number of letters and words under the note title
 
-    @smoke
+
   Scenario: User should be able to add any note to the favorites
    When  user clicks note module
     And user clicks new note button

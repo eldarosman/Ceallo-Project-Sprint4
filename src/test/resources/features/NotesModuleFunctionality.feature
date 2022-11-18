@@ -14,7 +14,7 @@ Feature: Notes Module Functionality
     And user clicks on the details
     Then user should be able to see the number of letters and words under the note title
 
-@smoke
+    @smoke
   Scenario: User should be able to add any note to the favorites
    When  user clicks note module
     And user clicks new note button

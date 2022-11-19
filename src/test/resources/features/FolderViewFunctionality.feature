@@ -4,8 +4,8 @@ Feature: Folder View Functionality
   Background:
   Given: the user is on the home page.
 
-    @smoke @CEA-1108
-  Scenario: User can change folder view order by Name
+    @CEA-1108 @smoke
+    Scenario: User can change folder view order by Name
     Given user is on home page
     When user navigate to Files button and clicks
     And user navigate to Name button and click

@@ -192,7 +192,7 @@ FolderViewFunctionalityPage folderViewFunctionalityPage = new FolderViewFunction
     }
     @Then("User verify that user can see the total values of all files")
     public void user_verify_that_user_can_see_the_total_values_of_all_files() {
-        String expectedTitle = "2 folders and 1 file";
+        String expectedTitle = "17 folders and 6 files (including 7 hidden)";
         String actualTitle = folderViewFunctionalityPage.totalFoldersAndFiles.getText();
 
         Assert.assertEquals(expectedTitle,actualTitle);

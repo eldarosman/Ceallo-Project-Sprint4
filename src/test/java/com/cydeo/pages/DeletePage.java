@@ -36,6 +36,7 @@ public class DeletePage extends BasePage {
 
     @FindBy(xpath = "//span[.=' Restore']")
     public WebElement restoreButton;
+
     @FindBy(xpath = "//a[.='All files']")
     public WebElement allFilesButton;
 

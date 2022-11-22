@@ -9,7 +9,6 @@ import org.junit.Assert;
 
 public class FileModule_stepDefinitions {
     BasePage basePage = new BasePage(){};
-
     DeletePage deletePage = new DeletePage();
 
     @When("user click Deleted files button")

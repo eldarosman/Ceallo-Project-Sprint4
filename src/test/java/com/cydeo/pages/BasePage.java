@@ -5,13 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class BasePage {
+public class BasePage {
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "a[id='nextcloud']")
+    @FindBy(xpath = "//a[@id='nextcloud']")
     public WebElement mainMenuButton;
 
     @FindBy(xpath = "(//*[@tabindex='-1'])[1]")
@@ -53,7 +53,7 @@ public abstract class BasePage {
     @FindBy(xpath = "div[id='contactsmenu']")
     public WebElement contactsButton;
 
-    @FindBy(xpath = "div[id='settings']")
+    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
     public WebElement usersMenuButton;
 
 }

@@ -27,47 +27,49 @@ public class FilesModuleStepDefinitions {
 
     //(1)----------------------------------------------------------------------------------
     @When("user clicks Add to favorites")
-    public void user_clicks_add_to_favorites() throws InterruptedException {
-
-       // klwqjthqwkljh
+    public void user_clicks_add_to_favorites() {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),5);
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//a[@href='/index.php/apps/files/'])[1]")));
         filesPage.fileModuleButton.click();
 
         List<WebElement> elementsList = Driver.getDriver().findElements(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[2]/a/span[1]/span"));
 
         if (elementsList.isEmpty()){
-            Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"controls\"]/div[2]/a")));
             filesPage.newFileBtn.click();
 
-            Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"controls\"]/div[2]/div[2]/ul/li[2]/a/span[2]")));
             action.moveToElement(filesPage.newFolderOption).click().sendKeys("yeet"+ Keys.ENTER).perform();
         }else {
 
         }
 
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[2]/a/span[1]/span")));
         action.moveToElement(filesPage.freshFolder).contextClick(filesPage.freshFolder).perform();
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"rightClickMenu\"]/ul/li[1]/a/span[2]")));
         action.moveToElement(filesPage.addToFavoritesButton).click().perform();
 
     }
 
     @Then("folder should be added to favorites")
-    public void folder_should_be_added_to_favorites() throws InterruptedException {
+    public void folder_should_be_added_to_favorites() {
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),5);
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app-navigation\"]/ul/li[3]/a")));
         action.moveToElement(filesPage.favoritesTab).click().perform();
 
         Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         filesPage.favoritedFolder.isEnabled();
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"fileList\"]/tr/td[1]/a/span[1]/span")));
         action.moveToElement(filesPage.favoritedFolder).contextClick(filesPage.favoritedFolder).perform();
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"rightClickMenu\"]/ul/li[7]/a/span[2]")));
         action.moveToElement(filesPage.deleteFolderOption).click().perform();
 
 

@@ -7,9 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class MyWebLocatorsPage {
+public class SearchModuleWebLocatorsPage {
 
-    public MyWebLocatorsPage() {
+    public SearchModuleWebLocatorsPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

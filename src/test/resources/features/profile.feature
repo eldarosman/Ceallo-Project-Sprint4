@@ -1,21 +1,23 @@
-Feature: Ceallo app login feature
-  @Ceallo
-  Scenario: User login with valid credentials
-    When user click on the login icon
-    And user enters username and password
-    Then user should see Dashboard
-  @Ceallo
-  Scenario: User can upload a file
-    Given user click + button in files page
-    When user click upload file button
-  @Ceallo
-  Scenario: User can create a new folder
-    When user click New folder button
-    Then user types a folder name
+Feature: Ceallo user profile feature
 
-  Scenario: User can move or copy any selected item to any folder
-    Given user select a file in a folder
-    When user click threeDots sign
-    Then user click Move or copy button
-    And user select a folder to move or copy
-    And user click Copy to  or Move to button
+  Background: user logged in user profile
+    Given user click user profile button
+    When user click Settings button
+  @CEA-1066  @wip
+  Scenario: User can see at least following titles inside personal info
+  under Profile Settings page;         =>Full name/Email/Phone Number
+    Then user verify that full name, email and phonenumber
+
+  @CEA-1067  @smoke
+  Scenario:User can change Full name info under Profile Settings page
+    Given user enters name into Full name inputbox
+    When user verify the name in the inputbox
+
+  @CEA-1068
+  Scenario: User can make "Phone number" info as private under Profile Settings page
+    Given user click phone number s Private button
+
+  @CEA-1069
+  Scenario: User can see the current local time under the Local dropdown
+    Given user verify that local time appears
+    

@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.BasePage;
+import com.cydeo.pages.ContactsModulePage;
 import com.cydeo.pages.SearchModuleWebLocatorsPage;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
@@ -8,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 public class SearchModule_stepDefinitions {
 
@@ -15,11 +17,11 @@ public class SearchModule_stepDefinitions {
 
     SearchModuleWebLocatorsPage searchModuleWebLocatorsPage = new SearchModuleWebLocatorsPage();
 
+    ContactsModulePage contactPage = new ContactsModulePage();
+
     String fileOrFolderName = "PicturePhoto1";
     String contactsName = "sibel";
     String imageName = "resim";
-
-    //Actions action = new Actions(Driver.getDriver());
 
     //------------------------------------------------------TC1
     @When("user click on the Search icon")
@@ -47,28 +49,24 @@ public class SearchModule_stepDefinitions {
     //------------------------------------------------------TC2
     @When("user click on contacts searching icon")
     public void user_click_on_contacts_searching_icon() {
-        //first I need to check if there is such contact among Contacts. If there is no such contact, I need to create it
-        basePage.magnifyIconSearchButton.click();
+        basePage.contactsSearchButton.click();
     }
 
     @When("user enters a contact name {string}")
     public void user_enters_a_contact_name(String contactsName) {
-        searchModuleWebLocatorsPage.searchInputbox.sendKeys(contactsName);
+        searchModuleWebLocatorsPage.contactsSearchInputbox.sendKeys(contactsName);
+        BrowserUtils.sleep(3);
+        searchModuleWebLocatorsPage.contactFirstSearchResultInfoButton.click();
         BrowserUtils.sleep(3);
     }
 
     @Then("user should see the contact name")
     public void user_should_see_the_contact_name() {
-        Assert.assertTrue(searchModuleWebLocatorsPage.firstSearchResultContact.getAttribute("title").equalsIgnoreCase(contactsName));
-
-//        try{
-//            //Assert.assertTrue(myWebLocatorsPage.firstSearchResultContact.isDisplayed());
-//            Assert.assertTrue(myWebLocatorsPage.firstSearchResultContact.getAttribute("title").contains(contactsName));
-//        } catch (NoSuchElementException e){
-//            System.out.println("No result for " + contactsName);
-//            //System.out.println("Contact name is misspelled!");
-//        }
-
+        for (WebElement eachContact : contactPage.listOfContacts) {
+            if (eachContact.getText().equals(contactsName)) {
+                Assert.assertTrue(eachContact.isDisplayed());
+            }
+        }
     }
 
     //------------------------------------------------------TC3

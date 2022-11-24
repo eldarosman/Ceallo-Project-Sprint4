@@ -31,5 +31,18 @@ public class SearchModuleWebLocatorsPage {
     @FindBy(css = ".highlighted")
     public WebElement highlightedSearchResult;
 
+    @FindBy(xpath = "//li[@id='everyone']")
+    public WebElement allContactsButton;
+
+    @FindBy(xpath = "//input[@id='contactsmenu-search']")
+    public WebElement contactsSearchInputbox;
+
+    @FindBy(xpath = "(//img[@alt='Details'])[1]")
+    public WebElement contactFirstSearchResultInfoButton;
+
+    @FindBy(xpath = "//input[@id='contact-fullname']")
+    public WebElement selectedContactName;
+
+    //input[@id='contact-fullname']/../../../../../..//div[@class='app-content-list-item-line-one']
 
 }

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -29,21 +30,24 @@ public class FilesModuleStepDefinitions {
     @When("user clicks Add to favorites")
     public void user_clicks_add_to_favorites() {
 
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+
+
+
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),5);
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//a[@href='/index.php/apps/files/'])[1]")));
-        filesPage.fileModuleButton.click();
+        executor.executeScript("arguments[0].click();", filesPage.fileModuleButton);
 
         List<WebElement> elementsList = Driver.getDriver().findElements(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[2]/a/span[1]/span"));
 
         if (elementsList.isEmpty()){
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"controls\"]/div[2]/a")));
-            filesPage.newFileBtn.click();
+            executor.executeScript("arguments[0].click();", filesPage.newFileBtn);
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"controls\"]/div[2]/div[2]/ul/li[2]/a/span[2]")));
-            action.moveToElement(filesPage.newFolderOption).click().sendKeys("yeet"+ Keys.ENTER).perform();
-        }else {
-
+            executor.executeScript("arguments[0].click();", filesPage.newFolderOption);
+                    action.moveToElement(filesPage.newFolderOption).sendKeys("yeet"+ Keys.ENTER).perform();
         }
 
 
@@ -178,8 +182,6 @@ public class FilesModuleStepDefinitions {
 
             Driver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             action.moveToElement(filesPage.newFolderOption).click().sendKeys("yeet"+ Keys.ENTER).perform();
-        }else {
-
         }
 
 

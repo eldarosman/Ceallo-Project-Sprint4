@@ -23,6 +23,7 @@ public class SearchModule_stepDefinitions {
     String contactsName = "sibel";
     String imageName = "resim";
 
+
     //------------------------------------------------------TC1
     @When("user click on the Search icon")
     public void user_click_on_the_search_icon() {

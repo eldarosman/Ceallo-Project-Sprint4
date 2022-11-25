@@ -43,4 +43,5 @@ public class SearchModuleWebLocatorsPage {
     @FindBy(xpath = "//input[@id='contact-fullname']")
     public WebElement selectedContactName;
 
+
 }

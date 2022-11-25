@@ -37,6 +37,7 @@ public class Profile_StepDefinitions {
         String actualname=profilePage.fullName.getAttribute("value");
 
         Assert.assertEquals(expectedname,actualname);
+       // Assert.assertTrue(profilePage.fullName.isDisplayed());
 
     }
 
@@ -50,5 +51,6 @@ public class Profile_StepDefinitions {
     public void user_verify_that_local_time_appears() {
         String localTime=profilePage.localTime.getText();
         System.out.println(localTime);
+        Assert.assertTrue(profilePage.localTime.getText().contains(localTime));
     }
 }

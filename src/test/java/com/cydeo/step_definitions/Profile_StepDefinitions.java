@@ -52,5 +52,7 @@ public class Profile_StepDefinitions {
         String localTime=profilePage.localTime.getText();
         System.out.println(localTime);
         Assert.assertTrue(profilePage.localTime.getText().contains(localTime));
+
+        //Assert.assertTrue();
     }
 }

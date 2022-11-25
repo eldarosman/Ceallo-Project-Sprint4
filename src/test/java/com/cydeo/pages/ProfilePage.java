@@ -33,4 +33,6 @@ public class ProfilePage {
     @FindBy(xpath = "//*[@id=\"localeexample-time\"]")
     public WebElement localTime;
 
+    @FindBy(xpath = "")
+    public WebElement something;
 }
